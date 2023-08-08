@@ -47,6 +47,15 @@ struct DashboardView: View {
                     }
                     .onDelete(perform: vm.removeRows)
                 }
+                .toolbar {
+                  ToolbarItemGroup(placement: .bottomBar) {
+                     Text("SWIPE LEFT TO DELETE FROM A LIST")
+                         .font(.footnote)
+                         .foregroundColor(.secondary)
+                         .frame(maxWidth: .infinity)
+                         .textSelection(.enabled)
+                     }
+                }
             }
             .navigationTitle("Task Manager")
             .toolbar {
