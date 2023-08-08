@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DashboardView: View {
-    
+  
     @ObservedObject var vm : ViewModel = Resolver.shared.resolve(ViewModel.self)
     
     var body: some View {
@@ -16,11 +16,11 @@ struct DashboardView: View {
             VStack {
                 Picker("", selection: $vm.currentStatus) {
                     ForEach(vm.statusOfTask, id: \.self) {
-                        Text($0)
-                    }
-                }
-                .pickerStyle(.segmented)
-                .padding(.horizontal)
+                         Text($0)
+                     }
+                 }
+                 .pickerStyle(.segmented)
+                 .padding(.horizontal)
                 List {
                     ForEach(vm.storedTask.filter({$0.isCompleted == vm.state}) ) { task in
                         VStack {
