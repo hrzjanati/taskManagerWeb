@@ -10,9 +10,18 @@ protocol DashboardProviding {
     var addarrayOfTaskDefualt : TaskDetails { get }
     var title : String { get }
     var description : String { get }
+    var showingAlert : Bool { get }
+    var state : Bool { get }
     }
 
 class DashboardProvider: DashboardProviding {
+    var state: Bool {
+        return false
+    }
+    var showingAlert: Bool {
+        return false
+    }
+    
     var title: String {
         return ""
     }

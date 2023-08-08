@@ -8,45 +8,49 @@
 import SwiftUI
 
 struct DashboardView: View {
+    
     @ObservedObject var vm : ViewModel = Resolver.shared.resolve(ViewModel.self)
-    
-    
-    @State private var showingAlert = false
-    @State private var name = ""
-    
     
     var body: some View {
         NavigationView {
             VStack {
+                Picker("", selection: $vm.currentStatus) {
+                    ForEach(vm.statusOfTask, id: \.self) {
+                        Text($0)
+                    }
+                }
+                .pickerStyle(.segmented)
+                .padding(.horizontal)
                 List {
-                    ForEach(vm.storedTask.indices , id  : \.self) { index in
+                    ForEach(vm.storedTask.filter({$0.isCompleted == vm.state}) ) { task in
                         VStack {
                             Toggle(isOn: Binding<Bool>(
-                                get: { vm.storedTask[index].isCompleted },
+                                get: { task.isCompleted },
                                 set: { boolToggle in
-                                    CoreDataManager.shared.updateTaskIsCompleted(id: vm.storedTask[index].id ?? "", isCompleted: boolToggle) {
+                                    CoreDataManager.shared.updateTaskIsCompleted(id: task.id ?? "", isCompleted: boolToggle) {
                                         vm.storedTask = CoreDataManager.shared.fetchTaskFormCoreData()
                                     }
                                 })) {
-                                    Text(vm.storedTask[index].title ?? "Null")
+                                    Text(task.title ?? "Null")
                                 }
                             HStack {
-                                Text(vm.storedTask[index].describtion ?? "Null")
+                                Text(task.describtion ?? "Null")
+                                    .lineLimit(3)
                                 Spacer()
                             }
                         }
                     }
-                    .onDelete(perform: removeRows)
+                    .onDelete(perform: vm.removeRows)
                 }
             }
             .navigationTitle("Task Manager")
             .toolbar {
                 Button {
-                    showingAlert.toggle()
+                    vm.showingAlert.toggle()
                 } label: {
                     Image(systemName: "plus")
                 }
-                .alert("Enter your Task", isPresented: $showingAlert) {
+                .alert("Enter your Task", isPresented: $vm.showingAlert) {
                     TextField("Title", text: $vm.title)
                     TextField("describtion", text: $vm.description)
                     Button("Add", action: vm.addtocoredata)
@@ -55,13 +59,6 @@ struct DashboardView: View {
                     Text("You can add task with title and describtion")
                 }
             }
-        }
-    }
-    func removeRows(at offsets: IndexSet) {
-        if vm.storedTask.indices.contains(offsets) {
-            guard let index = offsets.first else { return }
-            let item = vm.storedTask[index].id
-            CoreDataManager.shared.deleteTask(id: item ?? "")
         }
     }
 }

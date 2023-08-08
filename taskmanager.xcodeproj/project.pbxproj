@@ -19,6 +19,7 @@
 		740F6AC62A82338500BF1AD1 /* TaskManager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 740F6AC42A82338500BF1AD1 /* TaskManager.xcdatamodeld */; };
 		740F6AC82A823CAA00BF1AD1 /* DashboardProvide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740F6AC72A823CAA00BF1AD1 /* DashboardProvide.swift */; };
 		740F6ACA2A824E1B00BF1AD1 /* DashboradModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740F6AC92A824E1B00BF1AD1 /* DashboradModel.swift */; };
+		740F6ACC2A826D3900BF1AD1 /* CancelBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740F6ACB2A826D3900BF1AD1 /* CancelBag.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		740F6AC52A82338500BF1AD1 /* TaskManager.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TaskManager.xcdatamodel; sourceTree = "<group>"; };
 		740F6AC72A823CAA00BF1AD1 /* DashboardProvide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardProvide.swift; sourceTree = "<group>"; };
 		740F6AC92A824E1B00BF1AD1 /* DashboradModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboradModel.swift; sourceTree = "<group>"; };
+		740F6ACB2A826D3900BF1AD1 /* CancelBag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelBag.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				740F6A9C2A82297700BF1AD1 /* taskmanagerApp.swift */,
+				740F6ACB2A826D3900BF1AD1 /* CancelBag.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 				740F6ACA2A824E1B00BF1AD1 /* DashboradModel.swift in Sources */,
 				740F6A9F2A82297700BF1AD1 /* DashboardView.swift in Sources */,
 				740F6AC12A82313600BF1AD1 /* Persistence.swift in Sources */,
+				740F6ACC2A826D3900BF1AD1 /* CancelBag.swift in Sources */,
 				740F6A9D2A82297700BF1AD1 /* taskmanagerApp.swift in Sources */,
 				740F6AC32A8231AE00BF1AD1 /* CoreDataManager.swift in Sources */,
 				740F6AB72A822CC600BF1AD1 /* DashboardViewModel.swift in Sources */,
