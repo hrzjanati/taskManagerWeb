@@ -22,8 +22,8 @@ struct CoreDataManager {
             let taskDB = ItemsTask(context: self.viewContext)
             taskDB.id      =  "\(task.id)"
             taskDB.title    = task.title
-            taskDB.describtion = task.describtion
-            taskDB.isCompleted = task.isComplited
+            taskDB.describtion = task.description
+            taskDB.isCompleted = task.isCompleted
             return taskDB
         }
         saveContext()

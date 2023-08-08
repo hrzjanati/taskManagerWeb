@@ -7,13 +7,23 @@
 
 import Foundation
 protocol DashboardProviding {
-    var adarrayOfTaskDefualt : TaskDetails { get }
-}
+    var addarrayOfTaskDefualt : TaskDetails { get }
+    var title : String { get }
+    var description : String { get }
+    }
 
 class DashboardProvider: DashboardProviding {
-    var adarrayOfTaskDefualt: TaskDetails {
+    var title: String {
+        return ""
+    }
+    
+    var description: String {
+        return ""
+    }
+    
+    var addarrayOfTaskDefualt: TaskDetails {
         return TaskDetails(title: "test",
-                            describtion: "describtion of swift",
-                            isComplited: true)
+                            description: "describtion of swift",
+                            isCompleted: true)
     }
 }

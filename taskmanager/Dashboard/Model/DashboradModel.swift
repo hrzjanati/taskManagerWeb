@@ -10,14 +10,13 @@ import Foundation
 struct TaskDetails : Codable ,Identifiable {
     let id = UUID()
     let title : String
-    let describtion : String
-    let isComplited  : Bool
+    let description : String
+    let isCompleted  : Bool
     
     enum CodingKeys: String, CodingKey {
         case id
         case title
-        case describtion
-        case isComplited
+        case description
+        case isCompleted
     }
-    
 }

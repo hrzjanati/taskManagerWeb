@@ -9,7 +9,12 @@ import SwiftUI
 
 struct DashboardView: View {
     @ObservedObject var vm : ViewModel = Resolver.shared.resolve(ViewModel.self)
-    @State private var showGreeting = true
+    
+    
+    @State private var showingAlert = false
+    @State private var name = ""
+    
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -30,9 +35,17 @@ struct DashboardView: View {
             .navigationTitle("Task Manager")
             .toolbar {
                 Button {
-                    vm.addtocoredata()
+                    showingAlert.toggle()
                 } label: {
                     Image(systemName: "plus")
+                }
+                .alert("Enter your name", isPresented: $showingAlert) {
+                    TextField("Title", text: $vm.title)
+                    TextField("describtion", text: $vm.description)
+                    Button("OK", action: vm.addtocoredata)
+                    Button("Cancel", role: .cancel) { }
+                } message: {
+                    Text("Xcode will print whatever you type.")
                 }
             }
         }
