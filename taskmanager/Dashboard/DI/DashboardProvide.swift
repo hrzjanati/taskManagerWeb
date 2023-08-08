@@ -7,9 +7,13 @@
 
 import Foundation
 protocol DashboardProviding {
-    
+    var adarrayOfTaskDefualt : TaskDetails { get }
 }
 
 class DashboardProvider: DashboardProviding {
-    
+    var adarrayOfTaskDefualt: TaskDetails {
+        return TaskDetails(title: "test",
+                            describtion: "test",
+                            isComplited: true)
+    }
 }

@@ -10,16 +10,16 @@ extension DashboardView {
     class ViewModel : ObservableObject {
         public var provider: DashboardProviding = Resolver.shared.resolve(DashboardProviding.self)
         //PUBLISH
-        @Published var storedLanguage = CoreDataManager.shared.fetchTaskFormCoreData()
+        @Published var storedTask = CoreDataManager.shared.fetchTaskFormCoreData()
         //PRIVATE
-        private var add = ItemsTask()
+        private var arrayOfTask : TaskDetails
         //MARK: - INIT
         init() {
-         
+            arrayOfTask = provider.adarrayOfTaskDefualt
         }
         
         func addtocoredata() {
-            CoreDataManager.shared.addTaskInCoreData([add])
+            CoreDataManager.shared.addTaskInCoreData([arrayOfTask])
         }
     }
 }

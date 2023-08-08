@@ -17,15 +17,14 @@ struct CoreDataManager {
     private init() {
     }
     
-    func addTaskInCoreData(_ items: [ItemsTask]) {
-        // Clear all item before storing new
+    func addTaskInCoreData(_ items: [TaskDetails]) {
        // deleteLan()
         let _:[ItemsTask] = items.compactMap { (task) -> ItemsTask in
             let taskDB = ItemsTask(context: self.viewContext)
-            taskDB.id      =  task.id
+            taskDB.id      =  "\(task.id)"
             taskDB.title    = task.title
             taskDB.describtion = task.describtion
-            taskDB.isCompleted = task.isCompleted
+            taskDB.isCompleted = task.isComplited
             return taskDB
         }
         saveContext()
@@ -56,8 +55,6 @@ struct CoreDataManager {
                 }
             }
         } catch {
-            // Replace this implementation with code to handle the error appropriately.
-            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
             let nsError = error as NSError
             fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
         }
@@ -72,8 +69,6 @@ struct CoreDataManager {
             do {
                 try viewContext.save()
             } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
                 let nsError = error as NSError
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }

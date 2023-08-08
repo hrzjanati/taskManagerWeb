@@ -12,11 +12,12 @@ struct DashboardView: View {
     var body: some View {
         NavigationView {
             VStack {
-//                List {
-//                    ForEach(vm.storedLanguage.indices , id  : \.self) { index in
-//                        Text(vm.storedLanguage[index].title ?? "Null")
-//                    }
-//                }
+                List {
+                    ForEach(vm.storedTask.indices , id  : \.self) { index in
+                        Text(vm.storedTask[index].title ?? "Null")
+                        
+                    }
+                }
             }
             .navigationTitle("Task Manager")
             .toolbar {
