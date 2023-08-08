@@ -49,7 +49,6 @@ extension DashboardView {
         func subscribtionCurrentState() {
             $currentStatus
                 .sink { [self] str in
-                    print(str)
                     if str == "ToDO" {
                         state = false
                     } else {

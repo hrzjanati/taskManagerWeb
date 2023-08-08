@@ -32,10 +32,15 @@ struct DashboardView: View {
                                     }
                                 })) {
                                     Text(task.title ?? "Null")
+                                        .font(.headline)
+                                        .foregroundColor(.blue.opacity(0.8))
+                                        .bold()
                                 }
+                             
                             HStack {
                                 Text(task.describtion ?? "Null")
-                                    .lineLimit(3)
+                                    .font(.caption)
+                                    .foregroundColor(.gray)
                                 Spacer()
                             }
                         }
