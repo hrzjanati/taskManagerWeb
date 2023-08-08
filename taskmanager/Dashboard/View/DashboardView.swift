@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct DashboardView: View {
     var body: some View {
         NavigationView {
             VStack {
@@ -17,12 +17,19 @@ struct ContentView: View {
                 Text("Hello, world!")
             }
             .navigationTitle("Task Manager")
+            .toolbar {
+                Button {
+                    print("Image tapped!")
+                } label: {
+                    Image(systemName: "plus")
+                }
+            }
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        DashboardView()
     }
 }

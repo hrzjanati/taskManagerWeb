@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		740F6A9D2A82297700BF1AD1 /* taskmanagerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740F6A9C2A82297700BF1AD1 /* taskmanagerApp.swift */; };
-		740F6A9F2A82297700BF1AD1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740F6A9E2A82297700BF1AD1 /* ContentView.swift */; };
+		740F6A9F2A82297700BF1AD1 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740F6A9E2A82297700BF1AD1 /* DashboardView.swift */; };
 		740F6AA12A82297800BF1AD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 740F6AA02A82297800BF1AD1 /* Assets.xcassets */; };
 		740F6AA42A82297800BF1AD1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 740F6AA32A82297800BF1AD1 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -16,7 +16,7 @@
 /* Begin PBXFileReference section */
 		740F6A992A82297700BF1AD1 /* taskmanager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = taskmanager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		740F6A9C2A82297700BF1AD1 /* taskmanagerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = taskmanagerApp.swift; sourceTree = "<group>"; };
-		740F6A9E2A82297700BF1AD1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		740F6A9E2A82297700BF1AD1 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		740F6AA02A82297800BF1AD1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		740F6AA32A82297800BF1AD1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -51,8 +51,8 @@
 		740F6A9B2A82297700BF1AD1 /* taskmanager */ = {
 			isa = PBXGroup;
 			children = (
-				740F6A9C2A82297700BF1AD1 /* taskmanagerApp.swift */,
-				740F6A9E2A82297700BF1AD1 /* ContentView.swift */,
+				740F6AAA2A822B4600BF1AD1 /* Root */,
+				740F6AAB2A822B4C00BF1AD1 /* Dashboard */,
 				740F6AA02A82297800BF1AD1 /* Assets.xcassets */,
 				740F6AA22A82297800BF1AD1 /* Preview Content */,
 			);
@@ -65,6 +65,54 @@
 				740F6AA32A82297800BF1AD1 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		740F6AAA2A822B4600BF1AD1 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				740F6A9C2A82297700BF1AD1 /* taskmanagerApp.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		740F6AAB2A822B4C00BF1AD1 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				740F6AAC2A822B5800BF1AD1 /* View */,
+				740F6AAD2A822B6700BF1AD1 /* ViewModel */,
+				740F6AAE2A822B6C00BF1AD1 /* Model */,
+				740F6AAF2A822B7000BF1AD1 /* DI */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		740F6AAC2A822B5800BF1AD1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				740F6A9E2A82297700BF1AD1 /* DashboardView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		740F6AAD2A822B6700BF1AD1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		740F6AAE2A822B6C00BF1AD1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		740F6AAF2A822B7000BF1AD1 /* DI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +185,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				740F6A9F2A82297700BF1AD1 /* ContentView.swift in Sources */,
+				740F6A9F2A82297700BF1AD1 /* DashboardView.swift in Sources */,
 				740F6A9D2A82297700BF1AD1 /* taskmanagerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
