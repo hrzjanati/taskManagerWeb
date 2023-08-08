@@ -54,8 +54,10 @@ extension DashboardView {
                     } else {
                         state = true
                     }
+                    storedTask = CoreDataManager.shared.fetchTaskFormCoreData()
                 }
                 .store(in: caneclBage)
+            
         }
     }
 }
