@@ -34,7 +34,7 @@ struct CoreDataManager {
     
     func fetchTaskFormCoreData()->[ItemsTask] {
         var result = [ItemsTask]()
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Task")
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ItemsTask")
         request.sortDescriptors = [NSSortDescriptor(keyPath: \ItemsTask.id, ascending: true)]
         do {
             if let all = try viewContext.fetch(request) as? [ItemsTask] {

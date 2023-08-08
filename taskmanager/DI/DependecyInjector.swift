@@ -29,5 +29,13 @@ class Resolver {
 }
 private func allViewContainer() -> Container {
     let container = Container()
+    
+    container.register(DashboardProviding.self) { _ in
+        DashboardProvider()
+    }.inObjectScope(.container)
+    
+    container.register(DashboardView.ViewModel.self) { _ in
+        DashboardView.ViewModel()
+    }.inObjectScope(.container)
     return container
 }

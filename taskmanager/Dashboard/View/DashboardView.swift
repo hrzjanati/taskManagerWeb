@@ -8,18 +8,20 @@
 import SwiftUI
 
 struct DashboardView: View {
+    @ObservedObject var vm : ViewModel = Resolver.shared.resolve(ViewModel.self)
     var body: some View {
         NavigationView {
             VStack {
-                Image(systemName: "globe")
-                    .imageScale(.large)
-                    .foregroundColor(.accentColor)
-                Text("Hello, world!")
+//                List {
+//                    ForEach(vm.storedLanguage.indices , id  : \.self) { index in
+//                        Text(vm.storedLanguage[index].title ?? "Null")
+//                    }
+//                }
             }
             .navigationTitle("Task Manager")
             .toolbar {
                 Button {
-                    print("Image tapped!")
+                    vm.addtocoredata()
                 } label: {
                     Image(systemName: "plus")
                 }
