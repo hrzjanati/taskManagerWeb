@@ -11,6 +11,12 @@
 		740F6A9F2A82297700BF1AD1 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740F6A9E2A82297700BF1AD1 /* DashboardView.swift */; };
 		740F6AA12A82297800BF1AD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 740F6AA02A82297800BF1AD1 /* Assets.xcassets */; };
 		740F6AA42A82297800BF1AD1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 740F6AA32A82297800BF1AD1 /* Preview Assets.xcassets */; };
+		740F6AB22A822C0500BF1AD1 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 740F6AB12A822C0500BF1AD1 /* Swinject */; };
+		740F6AB52A822C6B00BF1AD1 /* DependecyInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740F6AB42A822C6B00BF1AD1 /* DependecyInjector.swift */; };
+		740F6AB72A822CC600BF1AD1 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740F6AB62A822CC600BF1AD1 /* DashboardViewModel.swift */; };
+		740F6AC12A82313600BF1AD1 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740F6AC02A82313600BF1AD1 /* Persistence.swift */; };
+		740F6AC32A8231AE00BF1AD1 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740F6AC22A8231AE00BF1AD1 /* CoreDataManager.swift */; };
+		740F6AC62A82338500BF1AD1 /* TaskManager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 740F6AC42A82338500BF1AD1 /* TaskManager.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +25,11 @@
 		740F6A9E2A82297700BF1AD1 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		740F6AA02A82297800BF1AD1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		740F6AA32A82297800BF1AD1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		740F6AB42A822C6B00BF1AD1 /* DependecyInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependecyInjector.swift; sourceTree = "<group>"; };
+		740F6AB62A822CC600BF1AD1 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
+		740F6AC02A82313600BF1AD1 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		740F6AC22A8231AE00BF1AD1 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		740F6AC52A82338500BF1AD1 /* TaskManager.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TaskManager.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				740F6AB22A822C0500BF1AD1 /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,7 +63,9 @@
 		740F6A9B2A82297700BF1AD1 /* taskmanager */ = {
 			isa = PBXGroup;
 			children = (
-				740F6AAA2A822B4600BF1AD1 /* Root */,
+				740F6AAA2A822B4600BF1AD1 /* Resources */,
+				740F6AB32A822C3A00BF1AD1 /* DI */,
+				740F6AB82A8230A100BF1AD1 /* DB */,
 				740F6AAB2A822B4C00BF1AD1 /* Dashboard */,
 				740F6AA02A82297800BF1AD1 /* Assets.xcassets */,
 				740F6AA22A82297800BF1AD1 /* Preview Content */,
@@ -67,12 +81,12 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		740F6AAA2A822B4600BF1AD1 /* Root */ = {
+		740F6AAA2A822B4600BF1AD1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				740F6A9C2A82297700BF1AD1 /* taskmanagerApp.swift */,
 			);
-			path = Root;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		740F6AAB2A822B4C00BF1AD1 /* Dashboard */ = {
@@ -97,6 +111,7 @@
 		740F6AAD2A822B6700BF1AD1 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				740F6AB62A822CC600BF1AD1 /* DashboardViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -115,6 +130,24 @@
 			path = DI;
 			sourceTree = "<group>";
 		};
+		740F6AB32A822C3A00BF1AD1 /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				740F6AB42A822C6B00BF1AD1 /* DependecyInjector.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		740F6AB82A8230A100BF1AD1 /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				740F6AC22A8231AE00BF1AD1 /* CoreDataManager.swift */,
+				740F6AC02A82313600BF1AD1 /* Persistence.swift */,
+				740F6AC42A82338500BF1AD1 /* TaskManager.xcdatamodeld */,
+			);
+			path = DB;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -131,6 +164,9 @@
 			dependencies = (
 			);
 			name = taskmanager;
+			packageProductDependencies = (
+				740F6AB12A822C0500BF1AD1 /* Swinject */,
+			);
 			productName = taskmanager;
 			productReference = 740F6A992A82297700BF1AD1 /* taskmanager.app */;
 			productType = "com.apple.product-type.application";
@@ -159,6 +195,9 @@
 				Base,
 			);
 			mainGroup = 740F6A902A82297700BF1AD1;
+			packageReferences = (
+				740F6AB02A822C0500BF1AD1 /* XCRemoteSwiftPackageReference "Swinject" */,
+			);
 			productRefGroup = 740F6A9A2A82297700BF1AD1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -185,8 +224,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				740F6AC62A82338500BF1AD1 /* TaskManager.xcdatamodeld in Sources */,
+				740F6AB52A822C6B00BF1AD1 /* DependecyInjector.swift in Sources */,
 				740F6A9F2A82297700BF1AD1 /* DashboardView.swift in Sources */,
+				740F6AC12A82313600BF1AD1 /* Persistence.swift in Sources */,
 				740F6A9D2A82297700BF1AD1 /* taskmanagerApp.swift in Sources */,
+				740F6AC32A8231AE00BF1AD1 /* CoreDataManager.swift in Sources */,
+				740F6AB72A822CC600BF1AD1 /* DashboardViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,6 +362,7 @@
 				DEVELOPMENT_TEAM = MVNG7STF8U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = taskmanager;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -347,6 +392,7 @@
 				DEVELOPMENT_TEAM = MVNG7STF8U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = taskmanager;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -387,6 +433,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		740F6AB02A822C0500BF1AD1 /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 2.8.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		740F6AB12A822C0500BF1AD1 /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 740F6AB02A822C0500BF1AD1 /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		740F6AC42A82338500BF1AD1 /* TaskManager.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				740F6AC52A82338500BF1AD1 /* TaskManager.xcdatamodel */,
+			);
+			currentVersion = 740F6AC52A82338500BF1AD1 /* TaskManager.xcdatamodel */;
+			path = TaskManager.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 740F6A912A82297700BF1AD1 /* Project object */;
 }
