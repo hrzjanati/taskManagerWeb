@@ -20,16 +20,23 @@ struct DashboardView: View {
             VStack {
                 List {
                     ForEach(vm.storedTask.indices , id  : \.self) { index in
-                        
                         VStack {
-                            Toggle(vm.storedTask[index].title ?? "Null",
-                                   isOn: $vm.storedTask[index].isCompleted)
+                            Toggle(isOn: Binding<Bool>(
+                                get: { vm.storedTask[index].isCompleted },
+                                set: { boolToggle in
+                                    CoreDataManager.shared.updateTaskIsCompleted(id: vm.storedTask[index].id ?? "", isCompleted: boolToggle) {
+                                        vm.storedTask = CoreDataManager.shared.fetchTaskFormCoreData()
+                                    }
+                                })) {
+                                    Text(vm.storedTask[index].title ?? "Null")
+                                }
                             HStack {
                                 Text(vm.storedTask[index].describtion ?? "Null")
                                 Spacer()
                             }
                         }
                     }
+                    .onDelete(perform: removeRows)
                 }
             }
             .navigationTitle("Task Manager")
@@ -39,15 +46,22 @@ struct DashboardView: View {
                 } label: {
                     Image(systemName: "plus")
                 }
-                .alert("Enter your name", isPresented: $showingAlert) {
+                .alert("Enter your Task", isPresented: $showingAlert) {
                     TextField("Title", text: $vm.title)
                     TextField("describtion", text: $vm.description)
-                    Button("OK", action: vm.addtocoredata)
+                    Button("Add", action: vm.addtocoredata)
                     Button("Cancel", role: .cancel) { }
                 } message: {
-                    Text("Xcode will print whatever you type.")
+                    Text("You can add task with title and describtion")
                 }
             }
+        }
+    }
+    func removeRows(at offsets: IndexSet) {
+        if vm.storedTask.indices.contains(offsets) {
+            guard let index = offsets.first else { return }
+            let item = vm.storedTask[index].id
+            CoreDataManager.shared.deleteTask(id: item ?? "")
         }
     }
 }

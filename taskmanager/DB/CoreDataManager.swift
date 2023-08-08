@@ -13,10 +13,10 @@ struct CoreDataManager {
     static let shared = CoreDataManager()
     
     private var viewContext = PersistenceController.shared.container.viewContext
-    
+    //MARK: -  Init
     private init() {
     }
-    
+    //MARK: -  Add
     func addTaskInCoreData(_ items: [TaskDetails]) {
         let _:[ItemsTask] = items.compactMap { (task) -> ItemsTask in
             let taskDB = ItemsTask(context: self.viewContext)
@@ -28,8 +28,7 @@ struct CoreDataManager {
         }
         saveContext()
     }
-    
-    
+    //MARK: - Fetch
     func fetchTaskFormCoreData()->[ItemsTask] {
         var result = [ItemsTask]()
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ItemsTask")
@@ -45,6 +44,23 @@ struct CoreDataManager {
         return result
     }
     
+    func updateTaskIsCompleted(id: String , isCompleted: Bool , compliction : @escaping () -> ()) {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ItemsTask")
+        do {
+            if let items = try viewContext.fetch(request) as? [ItemsTask] {
+                if let item = items.first(where: {$0.id == id}) {
+                    item.isCompleted = isCompleted
+                    compliction()
+                }
+            }
+        }catch {
+            let nsError = error as NSError
+            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+        }
+        saveContext()
+        
+    }
+    //MARK: -  Delete
     func deleteTask() {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ItemsTask")
         do {
@@ -60,6 +76,20 @@ struct CoreDataManager {
         saveContext()
     }
     
+    func deleteTask(id : String) {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ItemsTask")
+        do {
+            if let items = try viewContext.fetch(request) as? [ItemsTask] {
+                if let item = items.first(where: {$0.id == id}) {
+                    viewContext.delete(item)
+                }
+            }
+        } catch {
+            let nsError = error as NSError
+            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+        }
+        saveContext()
+    }
     // MARK: - SAVE
     func saveContext() {
         if viewContext.hasChanges {
