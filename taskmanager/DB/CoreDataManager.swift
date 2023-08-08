@@ -18,7 +18,6 @@ struct CoreDataManager {
     }
     
     func addTaskInCoreData(_ items: [TaskDetails]) {
-       // deleteLan()
         let _:[ItemsTask] = items.compactMap { (task) -> ItemsTask in
             let taskDB = ItemsTask(context: self.viewContext)
             taskDB.id      =  "\(task.id)"
@@ -60,8 +59,6 @@ struct CoreDataManager {
         }
         saveContext()
     }
-    
-    
     
     // MARK: - SAVE
     func saveContext() {

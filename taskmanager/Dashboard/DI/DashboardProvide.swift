@@ -13,7 +13,7 @@ protocol DashboardProviding {
 class DashboardProvider: DashboardProviding {
     var adarrayOfTaskDefualt: TaskDetails {
         return TaskDetails(title: "test",
-                            describtion: "test",
+                            describtion: "describtion of swift",
                             isComplited: true)
     }
 }

@@ -20,6 +20,7 @@ extension DashboardView {
         
         func addtocoredata() {
             CoreDataManager.shared.addTaskInCoreData([arrayOfTask])
+            storedTask = CoreDataManager.shared.fetchTaskFormCoreData()
         }
     }
 }
